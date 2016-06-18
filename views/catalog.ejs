@@ -1,93 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <% include head %>
-    </head>
-    <body>
-        <!-- Navigation -->
-        <% include nav %>
-        <!-- Intro Section -->
-        <section class="intro" id="intro">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2">
-                        <h1>Events</h1>
 
-                        <div class="row">
-                            <div class="col-lg-4 col-sm-6 col-xs-12">
-                                <a href="/events/kairos">
-                                    <img src="/images/h3.jpg" class="thumbnail img-responsive">
-                                </a>
-                                <p>Kairos</p>
-                            </div>
-                            <div class="col-lg-4 col-sm-6 col-xs-12">
-                                <a href="/events/asb">
-                                    <img src="http://placehold.it/800x600" class="thumbnail img-responsive">
-                                </a>
-                                <p>Alternative Spring Break</p>
-                            </div>
-                            <div class="col-lg-4 col-sm-6 col-xs-12">
-                                <a href="/events/supper">
-                                    <img src="http://placehold.it/800x600" class="thumbnail img-responsive">
-                                </a>
-                                <p>Third Sunday Supper</p>
-                            </div>
-                            <div class="col-lg-4 col-sm-6 col-xs-12">
-                                <a href="/events/lectures">
-                                    <img src="http://placehold.it/800x600" class="thumbnail img-responsive">
-                                </a>
-                                <p>Lecture Series</p>
-                            </div>
-                            <div class="col-lg-4 col-sm-6 col-xs-12">
-                                <a href="/events/cup">
-                                    <img src="/images/cup-poster.jpg" class="thumbnail img-responsive">
-                                </a>
-                                <p>Newman Cup</p>
-                            </div>
-                            <div class="col-lg-4 col-sm-6 col-xs-12">
-                                <a href="/events/agape">
-                                    <img src="/images/agape.jpg" class="thumbnail img-responsive">
-                                </a>
-                                <p>Agape Latte</p>
-                            </div>
-                            <div class="col-lg-4 col-sm-6 col-xs-12">
-                                <a href="/events/fest">
-                                    <img src="http://placehold.it/800x600" class="thumbnail img-responsive">
-                                </a>
-                                <p>Newman Fest</p>
-                            </div>
-                            <div class="col-lg-4 col-sm-6 col-xs-12">
-                                <a href="/events/adoration">
-                                    <img src="http://placehold.it/800x600" class="thumbnail img-responsive">
-                                </a>
-                                <p>First Friday Adoration</p>
-                            </div>
-                            <div class="col-lg-4 col-sm-6 col-xs-12">
-                                <a href="/events/instamass">
-                                    <img src="http://placehold.it/800x600" class="thumbnail img-responsive">
-                                </a>
-                                <p>Instamass</p>
-                            </div>
-                            <div class="col-lg-4 col-sm-6 col-xs-12">
-                                <a href="/events/newman-night">
-                                    <img src="http://placehold.it/800x600" class="thumbnail img-responsive">
-                                </a>
-                                <p>Newman Night</p>
-                            </div>
-                            <div class="col-lg-4 col-sm-6 col-xs-12">
-                                <a href="/events/wilderness">
-                                    <img src="/images/wilderness.jpg" class="thumbnail img-responsive">
-                                </a>
-                                <p>Wilderness Retreat</p>
-                            </div>
-                        </div>
+<head>
+    <% include head %>
+</head>
 
+<body>
 
+<% include nav %>
+
+<!-- Page Content -->
+<div class="container">
+
+    <div class="row">
+
+        <% include sidebar %>
+
+        <div class="col-md-9">
+            <div class="row">
+                <div class="col-md-12">
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="row">
+                        <% for (var i=1; i <= 6; i++) { %>
+                            <div class="col-lg-4 col-sm-6 col-xs-12">
+                                <a href="/">
+                                    <img src="http://placehold.it/800x600" class="thumbnail img-responsive">
+                                </a>
+                                <p>Game <%- i %></p>
+                            </div>
+                        <% } %>
                     </div>
                 </div>
             </div>
-        </section>
-        <% include foot-sub %>
-        <% include scripts %>
-    </body>
+        </div>
+    </div>
+</div>
+
+<!-- /.container -->
+<% include footer %>
+<!-- /.container -->
+
+<% include scripts %>
+
+</body>
+
 </html>

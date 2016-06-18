@@ -7,22 +7,22 @@ router.get('/', function(req, res, next) {
 });
 
 /* GET catalog. */
-router.get('/', function(req, res, next) {
+router.get('/catalog', function(req, res, next) {
   res.render('catalog', { title: 'Express' });
 });
 
 /* GET add game. */
-router.get('/', function(req, res, next) {
+router.get('/add', function(req, res, next) {
   res.render('add', { title: 'Express' });
 });
 
 /* GET about. */
-router.get('/', function(req, res, next) {
+router.get('/about', function(req, res, next) {
   res.render('about', { title: 'Express' });
 });
 
 /* GET login. */
-router.get('/', function(req, res, next) {
+router.get('/login', function(req, res, next) {
   res.render('login', { title: 'Express' });
 });
 
