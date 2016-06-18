@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <% include head %>
+    <link href="/css/form-labels-on-top.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <% include nav %>
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <div class="row">
+
+            <% include sidebar %>
+
+            <div class="col-md-9">
+                <div class="row">
+                    <div class="col-sm-12 col-lg-12 col-md-12">
+                        <!--<h4><a href="#">Checkout:</a></h4>-->
+                        <!--<p><%= name %></p>-->
+                        <!--<p><%= price %></p>-->
+                        <!--<p><%= quantity %></p>-->
+                        <!--<p><%= stripe_price %></p>-->
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="main-content">
+
+                            <!-- You only need this form and the form-labels-on-top.css -->
+
+                            <form class="form-labels-on-top" method="post" action="/checkout" role="form" id="checkout">
+
+                                <div class="form-title-row">
+                                    <h1>Checkout | <%= name %></h1>
+                                </div>
+
+                                <div class="form-row">
+                                    <label>
+                                        <span>First Name</span>
+                                        <input type="text" name="fname" id="fname" required>
+                                    </label>
+                                </div>
+
+                                <div class="form-row">
+                                    <label>
+                                        <span>Last Name</span>
+                                        <input type="text" name="lname" id="lname" required>
+                                    </label>
+                                </div>
+
+                                <div class="form-row">
+                                    <label>
+                                        <span>Email Address</span>
+                                        <input type="email" name="email" id="email" required>
+                                    </label>
+                                </div>
+
+                                <div class="form-row">
+                                    <label>
+                                        <span>Address Line 1</span>
+                                        <input type="text" name="add1" id="add1" required>
+                                    </label>
+                                </div>
+
+                                <div class="form-row">
+                                    <label>
+                                        <span>Address Line 2</span>
+                                        <input type="text" name="add2" id="add2">
+                                    </label>
+                                </div>
+
+                                <div class="form-row">
+                                    <label>
+                                        <span>State</span>
+                                        <input type="text" name="state" id="state" required>
+                                    </label>
+                                </div>
+
+                                <div class="form-row">
+                                    <label>
+                                        <span>Zip Code</span>
+                                        <input type="text" name="zip" id="zip" required>
+                                    </label>
+                                </div>
+
+                                <div class="form-row">
+                                    <label>
+                                        <span>Cell Phone Number</span>
+                                        <input type="text" name="number" id="number">
+                                    </label>
+                                </div>
+
+                                <div class="form-row">
+                                    <label>
+                                        <span>Additional Comments</span>
+                                        <textarea name="message" cols="50" rows="5" id="message"></textarea>
+                                    </label>
+                                </div>
+                                <div class="form-row">
+                                    <input type="hidden" name="price" value="<%= stripe_price %>">
+                                    <button type="submit" id="submit">Proceed to Payment!</button>
+                                </div>
+
+                                <script
+                                src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                                data-key="<%- stripeKey %>"
+                                data-image="/img/logo.png"
+                                data-name="Omega Volts"
+                                data-description="<%= name %>"
+                                data-zip-code="true"
+                                data-amount="<%= stripe_price %>"
+                                data-locale="auto">
+                                </script>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- /.container -->
+    <% include footer %>
+    <!-- /.container -->
+
+    <% include scripts %>
+    <script type="text/javascript">
+        $(function() {
+            $('#pay').click(function (e) {
+                $('.stripe-button-el').submit(function(){
+                    $('#checkout').submit();
+                });
+            });
+        });
+    </script>
+    <style type="text/css">
+        .stripe-button-el{
+            display: none;
+        }
+    </style>
+</body>
+
+</html>
